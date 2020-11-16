@@ -24,7 +24,8 @@ docker-composeを実行<br>
 `rails db:create`<br>
 `rails db:migrate`<br>
 
-「メール機能実装方法」の見出しより、メールサーバー(gmail yahoo)に合わせて設定する の部分をみる<br>
+config/initializers/mail_config.rbを記述<br>
+詳しくは「メール機能実装方法」の見出しより、メールサーバー(gmail yahoo)に合わせて設定する の部分をみる<br>
 
 アクセス<br>
 http://localhost/<br>
@@ -46,10 +47,10 @@ http://localhost/<br>
 rails generate mailer NotificationMailer (最後はファイル名なのでなんでもいい)
 `
 
-以下のファイルが作成される
+以下のファイルが作成される<br>
 `
 create  app/mailers/notification_mailer.rb メーラの設定を記述
-create  app/views/notification_mailer　このフォルーダにviewファイルを作成する
+create  app/views/notification_mailer　このフォルダにviewファイルを作成する
 `
 
 notification_mailer.rbに記述する
@@ -57,7 +58,7 @@ notification_mailer.rbに記述する
 class NotificationMailer < ApplicationMailer
         default from: 'no-replay@gmail.com'
 
-        ここのアクション名が大事 mailのviewはnotification_mailerフォルダに アクション名.text.erbと記述                           html.erbでも大丈夫
+        #ここのアクション名が大事 mailのviewはnotification_mailerフォルダに アクション名.text.erbと記述                           html.erbでも大丈夫
         def complete_mail(user) 
           @user = user
           @url = "http://localhost:3000/users/#{@user.id}"    ここでのインスタンス変数はmailのviewで使う
@@ -82,9 +83,10 @@ config/initializers/mail_config.rbに記述する このファイルは自分で
   }
 ```
 
-このメールアドレスの設定をgoogleの方で変える
-<https://myaccount.google.com/lesssecureapps>にアクセスして安全姓の低いアプリへのアクセスを有効にする
-gmailでアカウント登録して自分のpcで使えるようにする gmailにアカウント登録しなかったら送れない
+このメールアドレスの設定をgoogleの方で変える<br>
+<https://myaccount.google.com/lesssecureapps>にアクセスして安全姓の低いアプリへのアクセスを有効にする<br>
+gmailでアカウント登録して自分のpcで使えるようにする<br>
+gmailにアカウント登録しなかったら送れない
 
 
 
@@ -97,9 +99,9 @@ gmailでアカウント登録して自分のpcで使えるようにする gmail�
 
 ## メールのメッセージの中でlink_toをつかうには
  config/environmental/development.rb
-  ``
+  ```
      config.action_mailer.default_url_options = { host: 'localhost:3000'}
-  ``
+  ```
  "localhost:3000"のところはドメイン名
 <br>
 development.rbは開発環境の設定なので
