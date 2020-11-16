@@ -48,10 +48,10 @@ rails generate mailer NotificationMailer (最後はファイル名なのでな�
 `
 
 以下のファイルが作成される<br>
-`
-create  app/mailers/notification_mailer.rb メーラの設定を記述
-create  app/views/notification_mailer　このフォルダにviewファイルを作成する
-`
+```
+create  app/mailers/notification_mailer.rb  #メーラの設定を記述
+create  app/views/notification_mailer　      #このフォルダにviewファイルを作成する
+```
 
 notification_mailer.rbに記述する
 ```
