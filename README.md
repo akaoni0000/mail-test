@@ -128,3 +128,7 @@ config/enviromment/production.rb
 ``
 
 
+### 追記
+パスワードのところはgmailのアプリパスワードから発行されたパスワードを設定する<br>
+参考<br>
+https://senrenseyo.com/20210830/rails6-devisegmail/
