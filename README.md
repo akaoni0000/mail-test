@@ -90,13 +90,13 @@ gmailにアカウント登録しなかったら送れない
 
 ## メール文面
 app/views/notification_mailer/complete_mail.text.erbファイルを作成して記述
-``
+  ```
 Dear <%= @user.name %>.
 
 Thank you for registering!
 
 Your page is ...<%= @url %>
-``
+  ```
 
 ## メール送信処理
 メーラークラス.メソッド(引数).deliver_now
